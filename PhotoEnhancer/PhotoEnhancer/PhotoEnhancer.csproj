@@ -58,8 +58,11 @@
     <Compile Include="Filters\Parameters\ParametersFactory.cs" />
     <Compile Include="Filters\Parameters\ParametrizedFilter.cs" />
     <Compile Include="Filters\PixelFilter.cs" />
+    <Compile Include="Filters\SaturationParameters.cs" />
     <Compile Include="Filters\Transform\FreeTransformer.cs" />
     <Compile Include="Filters\Transform\ITransformer.cs" />
+    <Compile Include="Filters\Transform\PerspectiveParameters.cs" />
+    <Compile Include="Filters\Transform\PerspectiveTransformer.cs" />
     <Compile Include="Filters\Transform\RotateTransformer.cs" />
     <Compile Include="Filters\Transform\RotationParameters.cs" />
     <Compile Include="Filters\Transform\TransformFilter%28IParameters%29.cs" />
