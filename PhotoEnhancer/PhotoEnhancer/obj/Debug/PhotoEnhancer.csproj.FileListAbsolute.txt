@@ -1,0 +1,10 @@
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\bin\Debug\PhotoEnhancer.exe.config
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\bin\Debug\PhotoEnhancer.exe
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\bin\Debug\PhotoEnhancer.pdb
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.csprojAssemblyReference.cache
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.MainForm.resources
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.Properties.Resources.resources
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.csproj.GenerateResource.cache
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.csproj.CoreCompileInputs.cache
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.exe
+D:\Рефлексия\PhotoEnhancer\PhotoEnhancer\obj\Debug\PhotoEnhancer.pdb

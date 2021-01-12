@@ -40,5 +40,6 @@ namespace Profiler
             Console.WriteLine($"{description}: {elapsed:F2} ns");
 
         }
+       
     }
 }

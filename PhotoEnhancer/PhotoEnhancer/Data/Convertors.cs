@@ -48,5 +48,62 @@ namespace PhotoEnhancer
 
             return result;
         }
+        public static double GetPixelHue(Pixel p)
+        {
+            Color colour = PixelToColor(p);
+            return colour.GetHue();
+        }
+
+        public static double GetPixelSaturation(Pixel p)
+        {
+            Color colour = PixelToColor(p);
+            return colour.GetSaturation();
+        }
+
+        public static double GetPixelLightness(Pixel p)
+        {
+            Color colour = PixelToColor(p);
+            return colour.GetBrightness();
+        }
+
+        public static Color PixelToColor(Pixel p)
+        {
+            return Color.FromArgb((int)(p.R * 255), (int)(p.G * 255), (int)(p.B * 255));
+        }
+
+        public static Pixel HSL2Pixel(double hue, double saturation, double lightness)
+        {
+            double q;
+            if (lightness < 0.5)
+                q = lightness * (1 + saturation);
+            else
+                q = lightness + saturation - lightness * saturation;
+
+            double p = 2 * lightness - q;
+
+            double h = hue / 360;
+
+            var t = new[] { h + 1.0 / 3, h, h - 1.0 / 3 };
+
+            for (var i = 0; i < 3; i++)
+                if (t[i] < 0)
+                    t[i] += 1;
+                else if (t[i] > 1)
+                    t[i] -= 1;
+
+            var rgb = new double[3];
+
+            for (var i = 0; i < 3; i++)
+                if (t[i] < 1.0 / 6)
+                    rgb[i] = p + ((q - p) * 6 * t[i]);
+                else if (t[i] < 0.5)
+                    rgb[i] = q;
+                else if (t[i] < 2.0 / 3)
+                    rgb[i] = p + ((q - p) * (2.0 / 3 - t[i]) * 6);
+                else
+                    rgb[i] = p;
+
+            return new Pixel(rgb[0], rgb[1], rgb[2]);
+        }
     }
 }

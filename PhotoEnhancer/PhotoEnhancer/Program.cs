@@ -34,6 +34,19 @@ namespace PhotoEnhancer
                 }
                 ));
 
+            mainForm.AddFilter(new PixelFilter<SaturationParameters>("Насыщенность", (pixel, parameters) =>
+            {
+                var OriginalHue = Convertors.GetPixelHue(pixel);
+                var OriginalSaturation = Convertors.GetPixelSaturation(pixel);
+                var OriginalLightness = Convertors.GetPixelLightness(pixel);
+
+                var newS = OriginalSaturation * (parameters as SaturationParameters).Coefficient;
+                if (newS < 1 & newS > 0)
+                    return Convertors.HSL2Pixel(OriginalHue, newS, OriginalLightness);
+                else
+                    return Convertors.HSL2Pixel(OriginalHue, Pixel.Trim(newS), OriginalLightness);
+            }));
+
             mainForm.AddFilter(new TransformFilter(
                 "Отражение по горизонтали",
                 size => size,
@@ -46,11 +59,24 @@ namespace PhotoEnhancer
                 (point, size) => new Point(size.Width - point.Y - 1, point.X)
                 ));
 
+            mainForm.AddFilter(new TransformFilter<PerspectiveParameters>(
+                "Перспектива", new PerspectiveTransformer()));
 
             mainForm.AddFilter(new TransformFilter<RotationParameters>(
                 "Свободное вращение", new RotateTransformer()));
 
+            mainForm.AddFilter(new TransformFilter(
+                "Замена чётных строк",
+                size => size,
+                (point, size) =>
+                {
+                    if (point.Y % 2 == 0)
+                        return point;
+                    else
+                        return new Point(point.X, point.Y - 1);
+                }));
+
             Application.Run(mainForm);
         }
-    }
+    }    
 }
